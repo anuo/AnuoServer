@@ -68,9 +68,14 @@
          APR (HTTP/AJP) Connector: /docs/apr.html
          Define a non-SSL HTTP/1.1 Connector on port 8080
     -->
+	<!--
+		注释: 
+			address 如果存在这个节点值,则只能通过 http://192.168.0.195:88/ ip地址访问, 如果不存在这个节点,则通过 http://localhost:88/ 访问
+	-->
     <Connector port="88" protocol="HTTP/1.1"
                connectionTimeout="20000"
                redirectPort="8443" address="192.168.0.195"/>
+			   
     <!-- A "Connector" using the shared thread pool-->
     <!--
     <Connector executor="tomcatThreadPool"
@@ -138,7 +143,7 @@
                prefix="localhost_access_log." suffix=".txt"
                pattern="%h %l %u %t &quot;%r&quot; %s %b" />
 		<!--默认访问项目 http://192.168.0.195:88/v1/apiRegisterUser-->	   
-	    <Context path="/" docBase="anuoapp" debug="0" privileged="true" reloadable="true"/> 
+	    <Context path="/" docBase="anuoapp" debug="0" privileged="true" reloadable="true"/>
 		<!--指定访问项目 如：http://192.168.0.195:88/anuoapp/v1/apiRegisterUser-->	  
 		<Context path="/anuoapp" docBase="anuoapp" debug="0" privileged="true" reloadable="true"/> 
 		<Context path="/anuodog" docBase="anuodog" debug="0" privileged="true" reloadable="true"/> 
