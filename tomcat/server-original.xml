@@ -142,6 +142,12 @@
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
                prefix="localhost_access_log." suffix=".txt"
                pattern="%h %l %u %t &quot;%r&quot; %s %b" />
+		<!--
+			context 注释:
+			官方文档: https://tomcat.apache.org/tomcat-7.0-doc/config/context.html#Attributes
+			reloadable 属性: true 表示自动加载/WEB-INF/classes/ and /WEB-INF/lib 的更改, 会消耗运行时性能, 开发阶段可以开启,发布阶段请关闭
+			
+		-->
 		<!--默认访问项目 http://192.168.0.195:88/v1/apiRegisterUser-->	   
 	    <Context path="/" docBase="anuoapp" debug="0" privileged="true" reloadable="true"/>
 		<!--指定访问项目 如：http://192.168.0.195:88/anuoapp/v1/apiRegisterUser-->	  
